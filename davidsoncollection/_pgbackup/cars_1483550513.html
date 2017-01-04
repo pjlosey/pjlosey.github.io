@@ -62,11 +62,35 @@
                 <!--/.nav-collapse -->
             </div>
         </nav>
+        <!-- ------------------------------------------------------ Editable Content Below Next Dive --------------------------------------------------->
         <div class="container" data-pgc-field="mainContent">
-            <h1>Bootstrap starter template</h1>
-            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-        </div>         
-        <!-- ---------------------------- Editable Content Above This Div ------------------------------>         
+            <div class="row">
+                <div ng-app="sampleApp" ng-controller="ChatCtrl">
+                    <p>
+          Sort by:<select ng-model="orderBy">
+                            <option>year</option>
+                            <option>make</option>
+                            <option>model</option>
+                        </select> </p>
+                    <p>Search: <input ng-model="searchText"></p>
+                    <ul class="chatbox">
+                        <!-- arrays are fully sortable and filterable -->
+                        <li ng-repeat="message in messages | orderBy:orderBy | filter:searchText">
+                            {{ message.year }}: {{ message.make }} - {{ message.model}}
+                            <!-- delete a message using $remove -->
+                            <a href="" ng-click="messages.$remove(message)">X</a>
+                        </li>
+                    </ul>
+                    <form ng-submit="addMessage()">
+                        <input type="year" ng-model="year" ng-required ng-minlength="4" ng-maxlength="4">
+                        <input type="text" ng-model="make">
+                        <input type="text" ng-model="model">
+                        <input type="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- ------------------------------------------------------ Editable Content Above Previous </div> --------------------------------------------------->
         <!-- /.container -->
         <!-- Bootstrap core JavaScript
     ================================================== -->

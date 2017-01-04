@@ -17,21 +17,8 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
         <script src="assets/js/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
         <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
-        <script>
-          // Initialize Firebase
-          var config = {
-            apiKey: "AIzaSyACeHjThi_VjcQZNn0ZYPenLx5rIkHK6tk",
-            authDomain: "davidson-collection.firebaseapp.com",
-            databaseURL: "https://davidson-collection.firebaseio.com",
-            storageBucket: "davidson-collection.appspot.com",
-            messagingSenderId: "898995284063"
-          };
-          firebase.initializeApp(config);
-          //var storage = firebase.storage();
-        </script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
     </head>
     <body>
@@ -55,6 +42,9 @@
                             <a href="#about">About</a>
                         </li>
                         <li>
+                            <a href="#contact">Contact</a>
+                        </li>
+                        <li>
                             <a href="cars.html">Cars</a>
                         </li>
                     </ul>
@@ -62,11 +52,22 @@
                 <!--/.nav-collapse -->
             </div>
         </nav>
-        <div class="container" data-pgc-field="mainContent">
-            <h1>Bootstrap starter template</h1>
-            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-        </div>         
-        <!-- ---------------------------- Editable Content Above This Div ------------------------------>         
+        <div class="container">
+            <div class="starter-template" data-pgc-field="mainContent">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="file:///C:/Program%20Files%20(x86)/Pinegrow%20Web%20Designer/placeholders/img6.jpg" alt="">
+                            <div class="caption">
+                                <h3>Thumbnail label</h3>
+                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- /.container -->
         <!-- Bootstrap core JavaScript
     ================================================== -->

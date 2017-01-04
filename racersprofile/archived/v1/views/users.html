@@ -1,0 +1,43 @@
+<div  ng-controller="formCtrl">
+  <form ng-show="!userId">
+	Email:<br>
+	<input type="text" ng-model="loginForm.email" required><br>
+	Password:<br>
+	<input type="password" ng-model="loginForm.password" required>
+	<br><br>
+	<button ng-show="!userId" ng-click="userLogin()">Login</button>
+	<button ng-show="!userId" ng-click="userRegister()">Register</button>
+	<button ng-show="!userId" ng-click="userForgotPassword()">Forgot Password</button>
+	<button ng-click="reset()">Reset</button>
+  </form>
+  <form ng-show="userId">
+	<h3>Welcome {{user.email}}.</h3>
+	<p ng-show="!isEditing.displayName" ng-click='isEditing.displayName = true'>Display Name: {{user.displayName}}</p>
+	<p ng-show="isEditing.displayName">Display Name: <input ng-blur="userEdit()" type="text" ng-model="user.displayName"></p>
+	<p ng-show="!isEditing.homeTown" ng-click='isEditing.homeTown = true'>Home Town: {{user.homeTown}}</p>
+	<p ng-show="isEditing.homeTown">HomeTown: <input ng-blur="userEdit()" type="text" ng-model="user.homeTown"></p>
+	<input id="file" type="file">
+	<p>{{user.profileImage}}</p>
+	<p><img height="100px" src="{{user.profileImage}}" /></p>
+	<button ng-show="userId" ng-click="userEdit()">Edit</button>
+	<button ng-show="userId" ng-click="userLogout()">Logout</button>
+	<button ng-show="userId" ng-click="userDelete()">Delete</button>
+	</form>
+  
+	<div ng-show="user.isAdmin">
+		<hr>
+		<h3>userCtrl</h3>
+		<p>Alert Code = {{alertCode}}</p>
+		<p>Alert Message = {{alertMessage}}</p>
+		<p>LoginForm = {{loginForm}}</p>
+		<p>User(Firebase) = {{user}}</p>
+		<p>$scope.userId: {{userId}}</p>
+		<p>$scope.isEditing: {{isEditing}}</p>
+		</div>  
+	</div>
+	<div ng-show="user.isAdmin">
+		<hr>
+		<h3>Outside of any Module</h3>
+		{{userId}}
+	</div>
+</div>

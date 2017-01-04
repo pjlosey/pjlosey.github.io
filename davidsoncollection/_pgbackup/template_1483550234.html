@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="en" data-pgc-master="template.html">
+<!DOCTYPE html>
+<html lang="en" data-pgc-set-master>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -62,11 +62,48 @@
                 <!--/.nav-collapse -->
             </div>
         </nav>
-        <div class="container" data-pgc-field="mainContent">
-            <h1>Bootstrap starter template</h1>
-            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-        </div>         
-        <!-- ---------------------------- Editable Content Above This Div ------------------------------>         
+        <div class="container" data-pgc-edit="mainContent">
+</div>
+        <script>
+        var app = angular.module("sampleApp", ["firebase"]);
+
+        app.factory("chatMessages", ["$firebaseArray",
+          function($firebaseArray) {
+            var ref = firebase.database().ref('cars');
+            return $firebaseArray(ref);
+          }
+        ]);
+
+        app.controller("ChatCtrl", ["$scope", "chatMessages",
+          function($scope, chatMessages) {
+            $scope.user = "Guest " + Math.round(Math.random() * 100);
+            $scope.messages = chatMessages;
+            $scope.addMessage = function() {
+              // $add on a synchronized array is like Array.push() except it saves to the database!
+              $scope.messages.$add({
+                year: $scope.year,
+                make: $scope.make,
+                model: $scope.model,
+                timestamp: firebase.database.ServerValue.TIMESTAMP
+              });
+              $scope.year = "";
+            };
+
+            // if the messages are empty, add something for fun!
+            $scope.messages.$loaded(function() {
+              if ($scope.messages.length === 0) {
+                $scope.messages.$add({
+                  year: "1957",
+                  make: "Imaginary",
+                  model: "Tester",
+                  timestamp: firebase.database.ServerValue.TIMESTAMP
+                });
+              }
+            });
+          }
+        ]);
+        </script>
+        <!-- ------------------------------------------------------ Editable Content Below Here --------------------------------------------------->         
         <!-- /.container -->
         <!-- Bootstrap core JavaScript
     ================================================== -->

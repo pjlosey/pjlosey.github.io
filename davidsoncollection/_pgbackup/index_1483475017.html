@@ -1,0 +1,230 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script> 
+<script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script> 
+<div class="container"> 
+    <div class="row">
+        <div ng-app="sampleApp" ng-controller="ChatCtrl">
+            <section class="content-block gallery-1 gallery-1-1">
+                <div class="container">
+                    <div class="underlined-title">
+                        <h1>A selection of our work</h1>
+                        <hr>
+                        <h2>Hand-picked just for you</h2>
+                    </div>
+                    <ul class="filter">
+                        <li class="active">
+                            <a href="#" data-filter="*">All</a>
+                        </li>
+                        <li>
+                            <a href="#" data-filter=".artwork">Artwork</a>
+                        </li>
+                        <li>
+                            <a href="#" data-filter=".creative">Creative</a>
+                        </li>
+                        <li>
+                            <a href="#" data-filter=".nature">Nature</a>
+                        </li>
+                        <li>
+                            <a href="#" data-filter=".outside">Outside</a>
+                        </li>
+                        <li>
+                            <a href="#" data-filter=".photography">Photography</a>
+                        </li>
+                    </ul>
+                    <!-- /.gallery-filter -->
+                    <div class="row">
+                        <div class="isotope-gallery-container">
+                            <div class="col-md-3 col-sm-6 col-xs-12 gallery-item-wrapper artwork creative">
+                                <div class="gallery-item">
+                                    <div class="gallery-thumb">
+                                        <img src="http://placehold.it/800x600" class="img-responsive" alt="1st gallery Thumb">
+                                        <div class="image-overlay"></div>
+                                        <a href="http://placehold.it/800x600" class="gallery-zoom"><i class="fa fa-eye" alt="This is the title"></i></a>
+                                        <a href="#" class="gallery-link" target="_blank"><i class="fa fa-link"></i></a>
+                                    </div>
+                                    <div class="gallery-details">
+                                        <h5>1st Gallery Item</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.gallery-item-wrapper -->
+                            <div class="col-md-3 col-sm-6 col-xs-12 gallery-item-wrapper nature outside">
+                                <div class="gallery-item">
+                                    <div class="gallery-thumb">
+                                        <img src="http://placehold.it/800x600" class="img-responsive" alt="2nd gallery Thumb">
+                                        <div class="image-overlay"></div>
+                                        <a href="http://placehold.it/800x600" class="gallery-zoom"><i class="fa fa-eye"></i></a>
+                                        <a href="#" class="gallery-link"><i class="fa fa-link"></i></a>
+                                    </div>
+                                    <div class="gallery-details">
+                                        <h5>2nd Gallery Item</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.gallery-item-wrapper -->
+                            <div class="col-md-3 col-sm-6 col-xs-12 gallery-item-wrapper photography artwork">
+                                <div class="gallery-item">
+                                    <div class="gallery-thumb">
+                                        <img src="http://placehold.it/800x600" class="img-responsive" alt="3rd gallery Thumb">
+                                        <div class="image-overlay"></div>
+                                        <a href="http://placehold.it/800x600" class="gallery-zoom"><i class="fa fa-eye"></i></a>
+                                        <a href="#" class="gallery-link"><i class="fa fa-link"></i></a>
+                                    </div>
+                                    <div class="gallery-details">
+                                        <h5>3rd Gallery Item</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.gallery-item-wrapper -->
+                            <div class="col-md-3 col-sm-6 col-xs-12 gallery-item-wrapper creative nature">
+                                <div class="gallery-item">
+                                    <div class="gallery-thumb">
+                                        <img src="http://placehold.it/800x600" class="img-responsive" alt="4th gallery Thumb">
+                                        <div class="image-overlay"></div>
+                                        <a href="http://placehold.it/800x600" class="gallery-zoom"><i class="fa fa-eye"></i></a>
+                                        <a href="#" class="gallery-link"><i class="fa fa-link"></i></a>
+                                    </div>
+                                    <div class="gallery-details">
+                                        <h5>4th Gallery Item</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.gallery-item-wrapper -->
+                            <div class="col-md-3 col-sm-6 col-xs-12 gallery-item-wrapper nature">
+                                <div class="gallery-item">
+                                    <div class="gallery-thumb">
+                                        <img src="http://placehold.it/800x600" class="img-responsive" alt="5th gallery Thumb">
+                                        <div class="image-overlay"></div>
+                                        <a href="http://placehold.it/800x600" class="gallery-zoom"><i class="fa fa-eye"></i></a>
+                                        <a href="#" class="gallery-link"><i class="fa fa-link"></i></a>
+                                    </div>
+                                    <div class="gallery-details">
+                                        <h5>5th Gallery Item</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12 gallery-item-wrapper artwork creative">
+                                <div class="gallery-item">
+                                    <div class="gallery-thumb">
+                                        <img src="http://placehold.it/800x600" class="img-responsive" alt="6th gallery Thumb">
+                                        <div class="image-overlay"></div>
+                                        <a href="http://placehold.it/800x600" class="gallery-zoom"><i class="fa fa-eye"></i></a>
+                                        <a href="#" class="gallery-link"><i class="fa fa-link"></i></a>
+                                    </div>
+                                    <div class="gallery-details">
+                                        <h5>6th Gallery Item</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.gallery-item-wrapper -->
+                            <!-- /.gallery-item-wrapper -->
+                            <div class="col-md-3 col-sm-6 col-xs-12 gallery-item-wrapper nature outside">
+                                <div class="gallery-item">
+                                    <div class="gallery-thumb">
+                                        <img src="http://placehold.it/800x600" class="img-responsive" alt="7th gallery Thumb">
+                                        <div class="image-overlay"></div>
+                                        <a href="http://placehold.it/800x600" class="gallery-zoom"><i class="fa fa-eye"></i></a>
+                                        <a href="#" class="gallery-link"><i class="fa fa-link"></i></a>
+                                    </div>
+                                    <div class="gallery-details">
+                                        <h5>7th Gallery Item</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.gallery-item-wrapper -->
+                            <div class="col-md-3 col-sm-6 col-xs-12 gallery-item-wrapper photography artwork">
+                                <div class="gallery-item">
+                                    <div class="gallery-thumb">
+                                        <img src="http://placehold.it/800x600" class="img-responsive" alt="8th gallery Thumb">
+                                        <div class="image-overlay"></div>
+                                        <a href="http://placehold.it/800x600" class="gallery-zoom"><i class="fa fa-eye"></i></a>
+                                        <a href="#" class="gallery-link"><i class="fa fa-link"></i></a>
+                                    </div>
+                                    <div class="gallery-details">
+                                        <h5>8th Gallery Item</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.isotope-gallery-container -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container -->
+            </section>             
+            <p> 
+    Sort by:<select ng-model="orderBy"> 
+                    <option>year</option>                     
+                    <option>make</option>                     
+                    <option>model</option>                     
+                </select> </p> 
+            <p>Search: <input ng-model="searchText"></p> 
+            <ul class="chatbox"> 
+                <!-- arrays are fully sortable and filterable -->                 
+                <li ng-repeat="message in messages | orderBy:orderBy | filter:searchText"> 
+                    {{ message.year }}: {{ message.make }} - {{ message.model}}
+                    <!-- delete a message using $remove -->                     
+                    <a href="" ng-click="messages.$remove(message)">X</a> 
+                </li>                 
+            </ul>             
+            <form ng-submit="addMessage()"> 
+                <input type="year" ng-model="year" ng-required ng-minlength="4" ng-maxlength="4"> 
+                <input type="text" ng-model="make"> 
+                <input type="text" ng-model="model"> 
+                <input type="submit"> 
+            </form>             
+        </div>
+    </div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script> 
+<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script> 
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyACeHjThi_VjcQZNn0ZYPenLx5rIkHK6tk",
+    authDomain: "davidson-collection.firebaseapp.com",
+    databaseURL: "https://davidson-collection.firebaseio.com",
+    storageBucket: "davidson-collection.appspot.com",
+    messagingSenderId: "898995284063"
+  };
+  firebase.initializeApp(config);
+  //var storage = firebase.storage();
+</script> 
+<script>
+var app = angular.module("sampleApp", ["firebase"]);
+
+app.factory("chatMessages", ["$firebaseArray",
+  function($firebaseArray) {
+    var ref = firebase.database().ref('cars');
+    return $firebaseArray(ref);
+  }
+]);
+
+app.controller("ChatCtrl", ["$scope", "chatMessages",
+  function($scope, chatMessages) {
+    $scope.user = "Guest " + Math.round(Math.random() * 100);
+    $scope.messages = chatMessages;
+    $scope.addMessage = function() {
+      // $add on a synchronized array is like Array.push() except it saves to the database!
+      $scope.messages.$add({
+        year: $scope.year,
+        make: $scope.make,
+        model: $scope.model,
+        timestamp: firebase.database.ServerValue.TIMESTAMP
+      });
+      $scope.year = "";
+    };
+
+    // if the messages are empty, add something for fun!
+    $scope.messages.$loaded(function() {
+      if ($scope.messages.length === 0) {
+        $scope.messages.$add({
+          year: "1957",
+          make: "Imaginary",
+          model: "Tester",
+          timestamp: firebase.database.ServerValue.TIMESTAMP
+        });
+      }
+    });
+  }
+]);
+</script>

@@ -31,7 +31,7 @@
           };
           firebase.initializeApp(config);
           //var storage = firebase.storage();
-        </script>
+        </script>         
         <script src="bootstrap/js/bootstrap.min.js"></script>
     </head>
     <body>
@@ -63,10 +63,72 @@
             </div>
         </nav>
         <div class="container" data-pgc-field="mainContent">
-            <h1>Bootstrap starter template</h1>
-            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-        </div>         
-        <!-- ---------------------------- Editable Content Above This Div ------------------------------>         
+            <!-------------------------------------------------------- Editable Content Below Here --------------------------------------------------->             
+            <div class="row">
+                <div ng-app="sampleApp" ng-controller="ChatCtrl">
+                    <p>
+          Sort by:<select ng-model="orderBy">
+                            <option>year</option>
+                            <option>make</option>
+                            <option>model</option>
+                        </select> </p>
+                    <p>Search: <input ng-model="searchText"></p>
+                    <ul class="chatbox">
+                        <!-- arrays are fully sortable and filterable -->
+                        <li ng-repeat="message in messages | orderBy:orderBy | filter:searchText">
+                            {{ message.year }}: {{ message.make }} - {{ message.model}}
+                            <!-- delete a message using $remove -->
+                            <a href="" ng-click="messages.$remove(message)">X</a>
+                        </li>
+                    </ul>
+                    <form ng-submit="addMessage()">
+                        <input type="year" ng-model="year" ng-required ng-minlength="4" ng-maxlength="4">
+                        <input type="text" ng-model="make">
+                        <input type="text" ng-model="model">
+                        <input type="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+        var app = angular.module("sampleApp", ["firebase"]);
+
+        app.factory("chatMessages", ["$firebaseArray",
+          function($firebaseArray) {
+            var ref = firebase.database().ref('cars');
+            return $firebaseArray(ref);
+          }
+        ]);
+
+        app.controller("ChatCtrl", ["$scope", "chatMessages",
+          function($scope, chatMessages) {
+            $scope.user = "Guest " + Math.round(Math.random() * 100);
+            $scope.messages = chatMessages;
+            $scope.addMessage = function() {
+              // $add on a synchronized array is like Array.push() except it saves to the database!
+              $scope.messages.$add({
+                year: $scope.year,
+                make: $scope.make,
+                model: $scope.model,
+                timestamp: firebase.database.ServerValue.TIMESTAMP
+              });
+              $scope.year = "";
+            };
+
+            // if the messages are empty, add something for fun!
+            $scope.messages.$loaded(function() {
+              if ($scope.messages.length === 0) {
+                $scope.messages.$add({
+                  year: "1957",
+                  make: "Imaginary",
+                  model: "Tester",
+                  timestamp: firebase.database.ServerValue.TIMESTAMP
+                });
+              }
+            });
+          }
+        ]);
+        </script>
         <!-- /.container -->
         <!-- Bootstrap core JavaScript
     ================================================== -->

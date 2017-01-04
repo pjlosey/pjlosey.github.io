@@ -1,0 +1,27 @@
+<h3>Login Page</h3>
+<div ng-controller="loginCtrl">
+
+	<form id="loginForm" ng-show="!userId">
+		Email:<br>
+		<input type="email" ng-model="loginForm.email" required><br>
+		Password:<br>
+		<input type="password" ng-model="loginForm.password" required><br>
+		<button ng-show="!userId" ng-click="userLogin()">Login</button>
+	</form>
+	
+	<h3>No Account Yet? Register Below.</h3>
+	<form id="registerForm" ng-show="!userId">
+		Full Name:<br>
+		<input type="text" ng-model="registerForm.displayName" required><br>
+		Email:<br>
+		<input type="email" ng-model="registerForm.email" required><br>
+		Password:<br>
+		<input type="text" ng-model="registerForm.password" required><br>
+		<button ng-show="!userId" ng-click="userRegister()">Register</button>
+	</form>
+	
+			<p>Alert Code = {{alertCode}}</p>
+		<p>Alert Message = {{alertMessage}}</p>
+	
+
+</div>

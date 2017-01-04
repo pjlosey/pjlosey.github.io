@@ -1,0 +1,15 @@
+<h3>Login Page</h3>
+<div ng-controller="loginCtrl">
+
+	<form>
+		Email:<br>
+		<input type="text" ng-model="loginForm.email" required><br>
+		Password:<br>
+		<input type="password" ng-model="loginForm.password" required><br>
+		<button ng-show="!userId" ng-click="userLogin()">Login</button>
+	</form>
+	<button ng-show="userId" ng-click="userLogout()">Logout</button>
+	
+	{{test}}
+
+</div>

@@ -1,0 +1,10 @@
+<div ng-controller="racersCtrl">
+<table>
+  <tr ng-repeat="x in racers">
+    <td>
+		<a href="#/racers/profile/{{x.userName}}">{{x.displayName}}</a>
+	</td>
+  </tr>
+</table>
+
+</div>

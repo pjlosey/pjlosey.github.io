@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDIMNDCxNiY6LbIPhiQfYLhw2YylEBzxic",
+    authDomain: "racersprofile-4a3fe.firebaseapp.com",
+    databaseURL: "https://racersprofile-4a3fe.firebaseio.com",
+    storageBucket: "racersprofile-4a3fe.appspot.com",
+    messagingSenderId: "892729879993"
+  };
+  firebase.initializeApp(config);
+  var storage = firebase.storage();
+</script>
+
+<style>
+html{
+	/* This image will be displayed fullscreen */
+	background:url('http://hdwallpaperbackgrounds.net/wp-content/uploads/2016/07/white-background-5.jpg') no-repeat center center;
+
+	/* Ensure the html element always takes up the full height of the browser window */
+	min-height:100%;
+
+	/* The Magic */
+	background-size:cover;
+}
+
+body{
+	/* Workaround for some mobile browsers */
+	min-height:100%;
+}
+</style>
+
+<body ng-app="myApp" class="container">
+	<div ng-include="'views/header.html'"></div>
+	
+	<div ng-view></div>
+	
+</body>
+
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+
+	app.service('userService', function ($timeout) {
+		this.login = function(email, password) {		
+			firebase.auth().signInWithEmailAndPassword(email, password).then(function() {
+				//$scope.alerts("userLoggedIn","You have logged in.");
+			},function(error) {
+				//$scope.alerts(error.code,error.message);
+			});	
+		}
+		
+		this.logout = function() {
+			firebase.auth().signOut().then(function() {
+			  //$scope.alerts("userLoggedOut", "You have logged out.");
+			}, function(error) {
+			  //$scope.alerts(error.code,error.message);
+			});
+		}
+		
+		this.user = function() {
+			return {id: 1, name: "PJ"};
+		}
+	});
+
+	app.config(function($routeProvider) {
+		$routeProvider
+		.when("/", {
+			templateUrl : "views/home.html"
+		})
+		.when("/login", {
+			templateUrl : "views/login.html"
+		})
+		.when("/user/edit", {
+			templateUrl : "views/userEdit.html"
+		})
+		.when("/racers", {
+			templateUrl : "views/racers.html"
+		})
+		.when("/racers/profile/:racerId", {
+			templateUrl : "views/racersProfile.html"
+		});	
+	});
+
+</script>
+
+<script src="js/headerCtrl.js"></script>
+<script src="js/homeCtrl.js"></script>
+<script src="js/racersCtrl.js"></script>
+<script src="js/racersProfileCtrl.js"></script>
+<script src="js/loginCtrl.js"></script>
+<script src="js/userEditCtrl.js"></script>
+
+</html>

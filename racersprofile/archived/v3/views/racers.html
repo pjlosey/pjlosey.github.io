@@ -1,0 +1,15 @@
+<div ng-controller="racersCtrl">
+
+<div class="row">
+  <div ng-repeat="x in racers" class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <img src="{{x.profileImage}}" class="img-responsive img-circle" height="100px" width="100px" alt="{{x.displayName}}">
+      <div class="caption">
+        <p class="text-center"><strong>{{x.displayName}}</strong></p>
+        <p><a href="#/racers/profile/{{x.userName}}" class="btn btn-primary btn-block" role="button">View Profile</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
