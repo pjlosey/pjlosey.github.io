@@ -32,25 +32,26 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="formInput72">Make</label>
-                    <input type="text" class="form-control" id="make" ng-model="make" placeholder="Make" required>
+                    <input type="text" class="form-control" id="make" ng-model="make" placeholder="Make" required maxlength="4">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="formInput72">Model</label>
-                    <input type="text" class="form-control" id="formInput72" ng-model="model" placeholder="Model" required>
+                    <input type="text" class="form-control" id="formInput72" ng-model="model" placeholder="Model" required maxlength="4">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="formInput72">Trim</label>
-                    <input type="text" class="form-control" id="formInput72" ng-model="trim" placeholder="Trim" required>
+                    <input type="text" class="form-control" id="formInput72" ng-model="trim" placeholder="Trim" required maxlength="4">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="formInput72">VIN</label>
-                    <input type="text" class="form-control" id="formInput72" ng-model="vin" placeholder="VIN Number" maxlength="17">
+                    <input type="text" class="form-control" id="formInput72" ng-model="vin" placeholder="VIN Number" maxlength="4">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="formInput72">Mileage</label>
-                    <input type="number" class="form-control input-sm" id="formInput72" ng-model="miles" placeholder="Mileage" maxlength="6">
+                    <input type="number" class="form-control input-sm" id="formInput72" ng-model="miles" maxlength="4" placeholder="Mileage">
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Add Vehicle</button>
+                <input type="submit">
+                <button type="button" class="btn btn-primary btn-block">Label</button>
             </form>
         </div>
     </div>

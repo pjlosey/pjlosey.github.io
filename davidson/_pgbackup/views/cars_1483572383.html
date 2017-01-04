@@ -1,0 +1,41 @@
+<div ng-controller="racersCtrl">
+    <div class="row">
+        <div class="col-md-8">
+            <p>Sort by:<select ng-model="orderBy">
+                    <option>year</option>
+                    <option>make</option>
+                    <option>model</option>
+                </select></p>
+            <p>Search: <input ng-model="searchText"></p>
+            <div ng-repeat="x in users | orderBy:orderBy | filter:searchText" class="col-sm-6 col-md-4">
+                <!-- To order by say year do 'year', instead of orderBy-->
+                <div class="thumbnail">
+                    <img src="{{x.profileImage}}" class="img-responsive img-circle" height="100px" width="100px" alt="{{x.year}} {{x.make}} {{x.model}}">
+                    <div class="caption">
+                        <p class="text-center"><strong>Year: {{x.year}}</strong></p>
+                        <p class="text-center"><strong>Make: {{x.make}}</strong></p>
+                        <p class="text-center"><strong>Model: {{x.model}}</strong></p>
+                        <p class="text-center"><strong>Trim: {{x.trim}}</strong></p>
+                        <p class="text-center"><strong>VIN: {{x.vin}}</strong></p>
+                        <p class="text-center"><strong>Miles: {{x.miles}}</strong></p>
+                        <p><a href="#/cars/profile/{{x.$id}}" class="btn btn-primary btn-block" role="button">View Details</a></p>
+                        <p><a ng-click="users.$remove(x)" class="btn btn-danger btn-block" role="button">Delete Car</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <form ng-submit="addCar()">
+                <div class="form-group"> 
+                    <label class="control-label" for="formInput72">Field label</label>
+                    <input type="text" class="form-control" id="formInput72" ng-model="year" placeholder="Year" required ng-minlength="4" ng-maxlength="4">
+                </div>
+                <input type="text" ng-model="make">
+                <input type="text" ng-model="model">
+                <input type="text" ng-model="trim">
+                <input type="text" ng-model="vin">
+                <input type="text" ng-model="miles">
+                <input type="submit">
+            </form>
+        </div>
+    </div>

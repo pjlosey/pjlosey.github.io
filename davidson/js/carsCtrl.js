@@ -16,12 +16,12 @@ app.controller('racersCtrl', ["$scope", "racers",
         year: $scope.year,
         make: $scope.make,
         model: $scope.model,
-        model: $scope.trim,
-        model: $scope.vin,
-        model: $scope.miles,
+        trim: $scope.trim,
+        vin: $scope.vin,
+        miles: $scope.miles,
         timestamp: firebase.database.ServerValue.TIMESTAMP
       });
-      $scope.year = "";
+      // use to clear input box $scope.year = "";
     };
   }
 ]);
