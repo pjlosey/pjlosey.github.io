@@ -3,7 +3,11 @@ app.controller('headerCtrl', function($scope, $timeout, userService, $location) 
 	$scope.userLogout = function() {
 		userService.logout();
 	}
-	
+
+	$scope.isActive = function(route) {
+		return route === $location.path();
+	}
+
 	$scope.userGet = function() {
 		var usersRef = firebase.database().ref('users/'+$scope.userId);//' + $scope.user.id);
 		usersRef.on('value', function(snapshot) {
@@ -15,7 +19,7 @@ app.controller('headerCtrl', function($scope, $timeout, userService, $location) 
 			});
 		});
 	}
-	
+
 	//----------- Logged In State Settings ---------------------//
 	firebase.auth().onAuthStateChanged(function(user) {
 	  if (user) {
@@ -30,5 +34,5 @@ app.controller('headerCtrl', function($scope, $timeout, userService, $location) 
 	  }
 	});
 	//$scope.userId = firebase.auth().currentUser.uid;
-	
+
 });

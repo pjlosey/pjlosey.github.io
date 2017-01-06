@@ -1,13 +1,21 @@
-app.factory("racers", ["$firebaseArray",
+app.factory("cars", ["$firebaseArray",
   function($firebaseArray) {
     var ref = firebase.database().ref('cars');
     return $firebaseArray(ref);
   }
 ]);
 
-app.controller('racersCtrl', ["$scope", "racers",
-	function($scope, chatMessages) {
+app.factory("car", ["$firebaseArray",
+  function($firebaseArray) {
+    var ref = firebase.database().ref('cars/-K_p6LAJ6r1NUPmDttIP');
+    return $firebaseArray(ref);
+  }
+]);
 
+app.controller('racersCtrl', ["$scope", "cars", "car",
+	function($scope, chatMessages, car) {
+    console.log(car);
+    $scope.orderBy = "make"; //Sets the OrderBy Filter Default.
 	//--------------- User Firebase Data ----------------------//
     $scope.users = chatMessages;
     $scope.addCar = function() {

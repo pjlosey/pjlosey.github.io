@@ -10,8 +10,7 @@
             <div ng-repeat="x in users | orderBy:orderBy | filter:searchText" class="col-sm-6 col-md-4">
                 <!-- To order by say year do 'year', instead of orderBy-->
                 <div class="thumbnail">
-                    <img src="{{x.profileImage}}" class="img-circle img-responsive" height="500px" width="500px" alt="{{x.year}} {{x.make}} {{x.model}}" ng-show="image">
-                    <img src="http://www.ftffpodcast.com/wp-content/uploads/2013/12/5738500-internet-browser-error-message-no-image-available-handwritten-with-white-chalk-on-blackboard-with-er.jpg" class="img-circle img-responsive" height="500px" width="500px" alt="{{x.year}} {{x.make}} {{x.model}}" ng-hide="image">
+                    <img src="{{x.profileImage}}" class="img-circle img-responsive" height="100px" width="100px" alt="{{x.year}} {{x.make}} {{x.model}}" ng-show="image">
                     <div class="caption">
                         <p class="text-center"><strong>Year: {{x.year}}</strong></p>
                         <p class="text-center"><strong>Make: {{x.make}}</strong></p>
@@ -27,8 +26,6 @@
         </div>
         <div class="col-md-4">
             <form ng-submit="addCar()">
-                <h3>Add Car</h3>
-                <hr />
                 <div class="form-group">
                     <label class="control-label" for="formInput72">Year</label>
                     <input type="number" class="form-control input-sm" id="formInput72" ng-model="year" placeholder="Year" maxlength="4">
